@@ -89,44 +89,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// Hero Stats Counter Animation
-function animateHeroCounters() {
-    const counters = document.querySelectorAll('.hero-stats .stat-number');
-    const speed = 100;
 
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        let count = 0;
-        const increment = target / speed;
-
-        function updateCounter() {
-            if (count < target) {
-                count += increment;
-                const currentCount = Math.ceil(count);
-                counter.textContent = currentCount.toLocaleString();
-                setTimeout(updateCounter, 20);
-            } else {
-                counter.textContent = target.toLocaleString();
-            }
-        }
-        updateCounter();
-    });
-}
-
-// Trigger hero stats animation when hero section is visible
-const heroSection = document.querySelector('.hero');
-const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateHeroCounters();
-            heroObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-if (heroSection) {
-    heroObserver.observe(heroSection);
-}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -145,13 +108,34 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .stat-item, .about-text, .contact-info, .process-step');
+    const animateElements = document.querySelectorAll('.stat-item, .contact-info, .process-step');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+    
+    // FAQ functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
     });
 });
 
@@ -186,42 +170,7 @@ if (auditProcessSection) {
     auditProcessObserver.observe(auditProcessSection);
 }
 
-// Counter animation for stats
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-item h3');
-    const speed = 200;
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target') || parseInt(counter.innerText);
-            const count = +counter.innerText.replace(/\D/g, '');
-            const inc = target / speed;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc) + (counter.innerText.includes('+') ? '+' : '') + (counter.innerText.includes('B') ? 'B' : '') + (counter.innerText.includes('%') ? '%' : '');
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target + (counter.innerText.includes('+') ? '+' : '') + (counter.innerText.includes('B') ? 'B' : '') + (counter.innerText.includes('%') ? '%' : '');
-            }
-        };
-        updateCount();
-    });
-}
-
-// Trigger counter animation when stats section is visible
-const statsSection = document.querySelector('.stats');
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
@@ -233,16 +182,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Service card hover effects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+
 
 // Form validation and submission
 function validateForm() {
@@ -467,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Enhanced page load experience
 window.addEventListener('load', () => {
     // Trigger entrance animations
-    const animateElements = document.querySelectorAll('.service-card, .stat-item, .about-text, .contact-info, .testimonial-card');
+    const animateElements = document.querySelectorAll('.stat-item, .contact-info, .testimonial-card');
     
     animateElements.forEach((el, index) => {
         setTimeout(() => {
@@ -475,9 +415,4 @@ window.addEventListener('load', () => {
             el.style.transform = 'translateY(0)';
         }, index * 100);
     });
-    
-    // Initialize hero stats animation
-    setTimeout(() => {
-        animateHeroCounters();
-    }, 500);
 });

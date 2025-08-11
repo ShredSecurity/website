@@ -28,18 +28,20 @@
                 </h2>
             </div>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
+
                 <li class="nav-item">
                     <a href="#audit-process" class="nav-link">Audit Process</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#testimonials" class="nav-link">Testimonials</a>
-                </li>
+
+                                        <li class="nav-item">
+                            <a href="#testimonials" class="nav-link">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#faq" class="nav-link">FAQ</a>
+                        </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link request-quote-btn">Request Quote ↗</a>
                 </li>
@@ -63,7 +65,7 @@
                     <span class="word">of</span>
                     <span class="word">Web3</span>
                 </h1>
-                <p class="hero-subtitle">Expert smart contract security audits, L1 and L2 security, and smart contract analysis for DeFi protocols, NFTs with various ecosystems.</p>
+                <p class="hero-subtitle">Expert smart contract security audits, L1(Cosmos) and L2 security and audits for various ecosystems such as Ethereum, Solana, Soroban, Cosmwasm. We expertise in Solidity, Go, Rust, Move, Clarity and Python language projects.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Request Audit Now</a>
                     <a href="https://github.com/ShredSecurity/audits" class="btn btn-secondary">Portfolio <i class="fas fa-external-link-alt"></i></a>
@@ -73,15 +75,15 @@
                 <div class="hero-stats">
                     <div class="stat-tracker">
                         <div class="stat-label">Lines of Code Audited</div>
-                        <div class="stat-number" data-target="50000">0</div>
+                        <div class="stat-number">50000+</div>
                     </div>
                     <div class="stat-tracker">
                         <div class="stat-label">Critical/High/Medium Issues Uncovered</div>
-                        <div class="stat-number" data-target="90+">0</div>
+                        <div class="stat-number">90+</div>
                     </div>
                     <div class="stat-tracker">
                         <div class="stat-label">Total Audits Completed</div>
-                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-number">5</div>
                     </div>
                 </div>
             </div>
@@ -89,94 +91,53 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Security Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+            <h2 class="section-title">Featured Audits</h2>
+            <p class="section-subtitle">Discover our latest security audit projects and their findings</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="project-info">
+                            <h3 class="project-name">Gigchain</h3>
+                            <p class="project-description">Decentralized Freelancing Platform</p>
+                        </div>
+                        <div class="project-logo">
+                            <i class="fas fa-rocket"></i>
+                        </div>
                     </div>
-                    <h3>Smart Contract Audits</h3>
-                    <p>Comprehensive security analysis of smart contracts to identify vulnerabilities, logic flaws, and potential exploits.</p>
-                    <ul class="service-features">
-                        <li>Static & Dynamic Analysis</li>
-                        <li>Vulnerability Assessment</li>
-                        <li>Gas Optimization</li>
-                        <li>Compliance Review</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bug"></i>
+                    
+                    <div class="vulnerability-summary">
+                        <div class="vuln-item critical">
+                            <span class="vuln-count">1</span>
+                            <span class="vuln-type">High</span>
+                        </div>
+                        <div class="vuln-item medium">
+                            <span class="vuln-count">1</span>
+                            <span class="vuln-type">Medium</span>
+                        </div>
+                        <div class="vuln-item low">
+                            <span class="vuln-count">3</span>
+                            <span class="vuln-type">Low</span>
+                        </div>
+                        <div class="vuln-item info">
+                            <span class="vuln-count">5</span>
+                            <span class="vuln-type">Info</span>
+                        </div>
                     </div>
-                    <h3>Penetration Testing</h3>
-                    <p>Real-world attack simulation to test your Web3 application's security posture and identify weaknesses.</p>
-                    <ul class="service-features">
-                        <li>Black Box Testing</li>
-                        <li>White Box Testing</li>
-                        <li>Social Engineering</li>
-                        <li>Physical Security</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                    
+                    <div class="portfolio-footer">
+                        <div class="audit-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>May 15, 2025 - May 19, 2025</span>
+                        </div>
+                        <a href="#" target="_blank" class="view-report-btn">
+                            <span>View Report</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <h3>Code Review</h3>
-                    <p>In-depth analysis of blockchain code, focusing on security best practices and common attack vectors.</p>
-                    <ul class="service-features">
-                        <li>Manual Code Review</li>
-                        <li>Automated Scanning</li>
-                        <li>Best Practices Audit</li>
-                        <li>Architecture Review</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Risk Assessment</h3>
-                    <p>Comprehensive evaluation of your project's security risks and recommendations for mitigation strategies.</p>
-                    <ul class="service-features">
-                        <li>Threat Modeling</li>
-                        <li>Risk Scoring</li>
-                        <li>Mitigation Planning</li>
-                        <li>Compliance Mapping</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Security Consulting</h3>
-                    <p>Expert guidance on security architecture, best practices, and compliance requirements for Web3 projects.</p>
-                    <ul class="service-features">
-                        <li>Architecture Design</li>
-                        <li>Policy Development</li>
-                        <li>Training & Workshops</li>
-                        <li>Incident Response</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Incident Response</h3>
-                    <p>24/7 support for security incidents, including emergency response and recovery assistance.</p>
-                    <ul class="service-features">
-                        <li>24/7 Emergency Support</li>
-                        <li>Forensic Analysis</li>
-                        <li>Recovery Planning</li>
-                        <li>Post-Incident Review</li>
-                    </ul>
-                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -186,7 +147,7 @@
     <section id="audit-process" class="audit-process">
         <div class="container">
             <h2 class="section-title">Our Audit Process</h2>
-            <p class="section-subtitle">A comprehensive 6-step approach to securing your Web3 project</p>
+            <p class="section-subtitle">A comprehensive 4-step approach to securing your Web3 project</p>
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">01</div>
@@ -194,8 +155,8 @@
                         <i class="fas fa-clipboard-list"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Initial Assessment</h3>
-                        <p>Comprehensive review of project requirements, architecture, and security goals. Analysis of smart contract specifications and potential attack vectors.</p>
+                        <h3>Initial Security Analysis</h3>
+                        <p>Comprehensive pre-audit analysis covering potential improvements, code optimizations, and valuable insights for your project.</p>
                     </div>
                 </div>
                 <div class="process-step">
@@ -204,107 +165,35 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Code Analysis</h3>
-                        <p>Thorough static and dynamic analysis using industry-leading tools and manual code review. Examination of every line for vulnerabilities and security flaws.</p>
+                        <h3>Comprehensive Security Audit</h3>
+                        <p>Thorough and systematic security evaluation of all in-scope assets, delivering a comprehensive audit report. This report provides a clear roadmap with actionable recommendations to strengthen your system's overall security posture.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">03</div>
                     <div class="step-icon">
-                        <i class="fas fa-bug"></i>
+                        <i class="fas fa-shield-check"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Vulnerability Testing</h3>
-                        <p>Comprehensive penetration testing and exploit development to validate vulnerabilities. Real-world attack scenario simulation and impact assessment.</p>
+                        <h3>Vulnerability Resolution Verification</h3>
+                        <p>Comprehensive post-fix verification to ensure all identified vulnerabilities are properly resolved and that implemented fixes meet industry best practice security standards.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">04</div>
                     <div class="step-icon">
-                        <i class="fas fa-file-alt"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Detailed Report</h3>
-                        <p>Comprehensive security report with detailed findings, risk assessments, and actionable recommendations. Severity categorization and remediation steps.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">05</div>
-                    <div class="step-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="step-content">
-                        <h3>Remediation Support</h3>
-                        <p>Ongoing support for implementing security fixes. Code review guidance and best practices to ensure highest security standards.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">06</div>
-                    <div class="step-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="step-content">
-                        <h3>Final Verification</h3>
-                        <p>Final security review to verify all issues are addressed. Re-auditing critical functions and additional penetration tests for comprehensive coverage.</p>
+                        <h3>Ongoing Security Enhancement</h3>
+                        <p>Providing strategic post-audit guidance for ongoing security enhancement, rapid vulnerability response, and comprehensive security evaluations.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About & Team Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">About Shred Security</h2>
-                    <p>Shred Security is a leading Web3 security firm dedicated to protecting blockchain applications and DeFi protocols. Our team of experienced security researchers and blockchain experts has audited hundreds of smart contracts and helped secure billions of dollars in digital assets.</p>
-                    <p>We combine cutting-edge security research with deep blockchain knowledge to provide comprehensive security solutions that protect your users and assets.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Smart Contracts Audited</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>$50B+</h3>
-                            <p>Assets Protected</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>99.9%</h3>
-                            <p>Vulnerability Detection Rate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Team Section -->
-            <div class="team-section">
-                <h3 class="section-title">Our Team</h3>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-avatar"></div>
-                        <h4>Dr. Sarah Chen</h4>
-                        <p>Lead Security Researcher</p>
-                        <span>PhD in Cryptography, 10+ years in blockchain security</span>
-                        <div class="member-links">
-                            <a href="#" class="member-link personal-site">Personal Site</a>
-                            <a href="#" class="member-link twitter">Twitter</a>
-                        </div>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-avatar"></div>
-                        <h4>Marcus Rodriguez</h4>
-                        <p>Senior Penetration Tester</p>
-                        <span>Former NSA analyst, DeFi security specialist</span>
-                        <div class="member-links">
-                            <a href="#" class="member-link personal-site">Personal Site</a>
-                            <a href="#" class="member-link twitter">Twitter</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
@@ -351,7 +240,73 @@
         </div>
     </section>
 
-
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is a smart contract security audit?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A smart contract security audit is a comprehensive review of blockchain code to identify vulnerabilities, logic flaws, and potential exploits. Our team examines every line of code using both automated tools and manual analysis to ensure your smart contracts are secure before deployment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a security audit take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Audit duration depends on the complexity of your project. Simple contracts typically take 1-2 weeks, while complex DeFi protocols may require 3-6 weeks. We provide detailed timelines during our initial assessment and keep you updated throughout the process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of vulnerabilities do you find?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We identify critical, high, medium, and low severity vulnerabilities including reentrancy attacks, integer overflow/underflow, access control issues, logic flaws, gas optimization problems, and compliance violations. Each finding includes detailed explanations and remediation steps.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide post-audit support?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide ongoing support after the audit. This includes code review guidance for implementing fixes, best practices recommendations, and re-auditing critical functions to ensure vulnerabilities are properly addressed before deployment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes Shred Security different?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our team combines deep blockchain expertise with cutting-edge security research. We've audited hundreds of smart contracts and helped secure billions in digital assets. Our 99.9% vulnerability detection rate and comprehensive reporting set us apart in the industry.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How much does a security audit cost?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Audit costs vary based on project complexity, code size, and scope. We provide transparent, customized pricing after reviewing your requirements. Contact us for a detailed quote tailored to your specific project needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -373,7 +328,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd4hlRNdybtCb4f0SHzcTjE7Ajy0DApBSb50GjoMsSg6FHAcA/viewform?usp=dialog" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </div>
@@ -388,9 +343,9 @@
                     <p>Securing the future of Web3</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#services">Services</a>
-                    <a href="#about">About</a>
                     <a href="#testimonials">Testimonials</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#faq">FAQ</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
