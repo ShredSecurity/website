@@ -31,31 +31,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Create some floating elements
-    const particlesContainer = document.getElementById('particles-js');
-    if (particlesContainer) {
-        for (let i = 0; i < 30; i++) {
-            createFloatingElement(particlesContainer);
+    // Create interactive floating particles for hero section
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        createInteractiveParticles(heroSection);
+    }
+    
+    function createInteractiveParticles(container) {
+        for (let i = 0; i < 15; i++) {
+            createParticle(container);
         }
     }
     
-    function createFloatingElement(container) {
-        const element = document.createElement('div');
-        element.className = 'floating-element';
+    function createParticle(container) {
+        const particle = document.createElement('div');
+        particle.className = 'floating-particle';
         
-        // Random position and size
-        const size = Math.random() * 6 + 2;
+        // Random position and animation delay
         const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
+        const delay = Math.random() * 8;
         
-        element.style.width = size + 'px';
-        element.style.height = size + 'px';
-        element.style.left = x + 'px';
-        element.style.top = y + 'px';
-        element.style.animationDelay = Math.random() * 3 + 's';
+        particle.style.left = x + 'px';
+        particle.style.animationDelay = delay + 's';
         
-        container.appendChild(element);
+        container.appendChild(particle);
+        
+        // Remove and recreate particle after animation
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+                createParticle(container);
+            }
+        }, 12000 + delay * 1000);
     }
+    
+
     
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
