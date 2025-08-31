@@ -17,16 +17,16 @@
     "penetration-testing",
     "cybersecurity"
   ],
-  "author": "PrismNode Team",
+  "author": "Shed Security Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/prismnode-website.git"
+    "url": "shredsec.xyz"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/prismnode-website/issues"
+    "url": "shredsec.xyz"
   },
-  "homepage": "https://github.com/yourusername/prismnode-website#readme",
+  "homepage": "shredsec.xyz",
   "devDependencies": {},
   "dependencies": {}
 }
