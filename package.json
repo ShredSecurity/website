@@ -1,7 +1,7 @@
 {
-  "name": "prismnode-website",
+  "name": "shredsec-website",
   "version": "1.0.0",
-  "description": "Professional website for PrismNode - Web3 Security Firm",
+  "description": "Professional website for Shred Security - Web3 Security Firm",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
