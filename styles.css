@@ -725,113 +725,23 @@ body {
     gap: 12px;
 }
 
-.logo-icon {
+
+.logo-image {
     width: 40px;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
-.logo-icon svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.4));
-}
-
-.nav-logo:hover .logo-icon {
-    transform: scale(1.1) rotate(5deg);
-    filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.6));
-}
-
-.nav-logo h2 {
+.logo-text {
     color: var(--accent-primary);
     font-weight: 700;
     font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 4px;
     font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    margin: 0;
+    letter-spacing: 0.5px;
 }
 
-.nav-logo h2:hover {
-    transform: scale(1.05);
-}
-
-.logo-prism {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 900;
-    font-size: 1.9rem;
-    letter-spacing: -0.5px;
-    position: relative;
-}
-
-.logo-node {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 300;
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    position: relative;
-    padding: 2px 6px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-}
-
-.logo-node::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(135deg, #f093fb, #f5576c);
-    border-radius: 6px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0.3;
-}
-
-.logo-prism::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 1px;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo-prism:hover::after {
-    width: 100%;
-}
-
-.logo-node:hover {
-    transform: translateY(-1px);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo-node:hover::before {
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.nav-logo h2:hover .logo-prism {
-    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: all 0.3s ease;
-}
 
 .nav-menu {
     display: flex;
@@ -931,10 +841,10 @@ body {
 .hero {
     padding: 140px 0 80px;
     background: 
-        radial-gradient(circle at 25% 25%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
-        linear-gradient(135deg, #0a0a0f 0%, #111127 30%, #1a1a38 70%, #0f0f2a 100%);
+        radial-gradient(circle at 25% 25%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+        linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #111111 50%, #0a0a0a 80%, #000000 100%);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -2529,7 +2439,8 @@ body {
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .contact-item {
@@ -2537,11 +2448,58 @@ body {
     align-items: center;
     gap: 1rem;
     color: var(--text-secondary);
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.05);
 }
 
 .contact-item i {
     color: var(--accent-primary);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    width: 24px;
+    text-align: center;
+}
+
+.contact-item a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent-primary);
+}
+
+.contact-info h4 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.contact-info h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 2px;
 }
 
 .contact-form {
@@ -2780,30 +2738,56 @@ body {
         left: 0;
     }
 
+    .hero {
+        padding: 80px 0 40px;
+        min-height: 100vh;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 1rem;
+        padding: 0 15px;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
 
     .hero-buttons {
         justify-content: center;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 2rem;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1rem;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .stat-tracker {
-        min-width: 250px;
-        padding: 1rem;
+        min-width: 120px;
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .stat-tracker .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .stat-tracker .stat-label {
+        font-size: 0.75rem;
     }
 
     .vuln-categories {
@@ -2869,8 +2853,55 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 60px 0 20px;
+        min-height: 100vh;
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+    }
+
+    .stat-tracker {
+        min-width: 200px;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .stat-tracker .stat-number {
+        font-size: 1.1rem;
+    }
+
+    .stat-tracker .stat-label {
+        font-size: 0.7rem;
     }
 
     .section-title {
@@ -2879,17 +2910,6 @@ body {
 
     .container {
         padding: 0 15px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 250px;
-        text-align: center;
     }
 }
 
