@@ -2,34 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, creating mouse trail effect...');
     
-    // Create mouse trail effect
-    let mouseTrail = [];
-    const maxTrailLength = 20;
-    
-    document.addEventListener('mousemove', function(e) {
-        const trailDot = document.createElement('div');
-        trailDot.className = 'trail-dot';
-        trailDot.style.left = e.pageX + 'px';
-        trailDot.style.top = e.pageY + 'px';
-        
-        document.body.appendChild(trailDot);
-        
-        // Remove trail dot after animation
-        setTimeout(() => {
-            if (trailDot.parentNode) {
-                trailDot.parentNode.removeChild(trailDot);
-            }
-        }, 1000);
-        
-        // Limit trail length
-        mouseTrail.push(trailDot);
-        if (mouseTrail.length > maxTrailLength) {
-            const oldDot = mouseTrail.shift();
-            if (oldDot.parentNode) {
-                oldDot.parentNode.removeChild(oldDot);
-            }
-        }
-    });
     
     // Create interactive floating particles for hero section
     const heroSection = document.querySelector('.hero');
