@@ -889,7 +889,7 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 140px 0 80px;
+    padding: 220px 0 80px;
     background: transparent;
     color: var(--text-primary);
     min-height: 100vh;
@@ -1122,6 +1122,7 @@ body {
     animation: slideInFromLeft 1.2s ease-out 0.8s forwards;
     position: relative;
     z-index: 3;
+    max-width: 1000px;
 }
 
 
@@ -1271,7 +1272,7 @@ body {
 
 /* Trusted By Section */
 .trusted-by {
-    margin-top: 5rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     text-align: center;
     padding: 2rem 0;
