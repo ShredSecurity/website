@@ -652,13 +652,86 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--bg-primary);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 40% 60%, rgba(67, 233, 123, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 60% 40%, rgba(255, 107, 107, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(79, 172, 254, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(250, 112, 154, 0.05) 0%, transparent 30%),
+        linear-gradient(135deg, #000000 0%, #050505 25%, #0a0a0a 50%, #050505 75%, #000000 100%);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 40% 60%, rgba(67, 233, 123, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 60% 40%, rgba(255, 107, 107, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(79, 172, 254, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(250, 112, 154, 0.05) 0%, transparent 30%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(135deg, #000000 0%, #050505 25%, #0a0a0a 50%, #050505 75%, #000000 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 150px 150px, 150px 150px, 100% 100%;
+    background-attachment: fixed;
     overflow-x: hidden;
-    transition: all 0.3s ease;
+}
+
+@keyframes bodyGradientShift {
+    0%, 100% {
+        background-image:
+            radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 40% 60%, rgba(67, 233, 123, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 60% 40%, rgba(255, 107, 107, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 10% 90%, rgba(79, 172, 254, 0.10) 0%, transparent 30%),
+            radial-gradient(circle at 90% 10%, rgba(250, 112, 154, 0.10) 0%, transparent 30%),
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #000000 100%);
+    }
+    25% {
+        background-image:
+            radial-gradient(circle at 30% 70%, rgba(240, 147, 251, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 70% 30%, rgba(67, 233, 123, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 50% 20%, rgba(255, 107, 107, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 20% 80%, rgba(79, 172, 254, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 80% 60%, rgba(250, 112, 154, 0.10) 0%, transparent 30%),
+            radial-gradient(circle at 60% 40%, rgba(102, 126, 234, 0.10) 0%, transparent 30%),
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #000000 100%);
+    }
+    50% {
+        background-image:
+            radial-gradient(circle at 60% 40%, rgba(67, 233, 123, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 40% 60%, rgba(255, 107, 107, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 20% 20%, rgba(250, 112, 154, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 90% 30%, rgba(102, 126, 234, 0.10) 0%, transparent 30%),
+            radial-gradient(circle at 10% 70%, rgba(240, 147, 251, 0.10) 0%, transparent 30%),
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #000000 100%);
+    }
+    75% {
+        background-image:
+            radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 20% 80%, rgba(79, 172, 254, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 70% 70%, rgba(250, 112, 154, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.12) 0%, transparent 35%),
+            radial-gradient(circle at 50% 90%, rgba(240, 147, 251, 0.10) 0%, transparent 30%),
+            radial-gradient(circle at 50% 10%, rgba(67, 233, 123, 0.10) 0%, transparent 30%),
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #000000 100%);
+    }
 }
 
 .container {
@@ -676,14 +749,14 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
 }
 
 .navbar.scrolled {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -817,11 +890,7 @@ body {
 /* Hero Section */
 .hero {
     padding: 140px 0 80px;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
-        linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #111111 50%, #0a0a0a 80%, #000000 100%);
+    background: transparent;
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -985,7 +1054,7 @@ body {
 
 
 .hero-title {
-    font-size: 4.0rem;
+    font-size: 4.3rem;
     font-weight: 700;
     margin-bottom: 2rem;
     line-height: 1.1;
@@ -1044,10 +1113,11 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 2.5rem;
+    margin-top: 1.2rem;
     opacity: 0;
-    line-height: 1.4;
+    line-height: 1.6;
     transform: translateX(-50px);
     animation: slideInFromLeft 1.2s ease-out 0.8s forwards;
     position: relative;
@@ -1201,77 +1271,49 @@ body {
 
 /* Trusted By Section */
 .trusted-by {
-    margin-top: 2rem;
+    margin-top: 5rem;
     margin-bottom: 3rem;
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 1;
     transform: translateY(0);
     overflow: hidden;
     position: relative;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .trusted-label {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 300;
     margin-bottom: 2rem;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .trusted-logos {
     display: flex;
     align-items: center;
     gap: 2rem;
-    flex-wrap: nowrap;
-    animation: scrollLogos 15s linear infinite;
-    width: max-content;
+    justify-content: center;
+    flex-wrap: wrap;
     position: relative;
 }
 
-.trusted-logos:hover {
-    animation-play-state: paused;
-}
-
-.trusted-logos::before {
-    content: '';
-    position: absolute;
-    left: -50px;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    background: linear-gradient(to right, rgba(10, 10, 10, 0.8), transparent);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.trusted-logos::after {
-    content: '';
-    position: absolute;
-    right: -50px;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    background: linear-gradient(to left, rgba(10, 10, 10, 0.8), transparent);
-    z-index: 2;
-    pointer-events: none;
-}
 
 .trusted-logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem;
-    border-radius: 10px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    min-width: 80px;
+    min-width: 140px;
+    white-space: nowrap;
 }
 
 .trusted-logo:hover {
@@ -1282,16 +1324,15 @@ body {
 }
 
 .trusted-logo i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--accent-primary);
-    margin-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
 .trusted-logo span {
     color: var(--text-primary);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    text-align: center;
 }
 
 /* Vulnerability Tracker */
@@ -1468,23 +1509,13 @@ body {
 /* Audit Process Section */
 .audit-process {
     padding: 60px 0;
-    background: rgba(15, 15, 20, 0.9);
+    background: transparent;
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
-.audit-process::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(29, 78, 216, 0.05) 100%);
-    pointer-events: none;
-}
 
 .process-steps {
     display: grid;
@@ -1680,13 +1711,13 @@ body {
 /* Testimonials Section */
 .testimonials {
     padding: 80px 0;
-    background: var(--bg-secondary);
+    background: transparent;
 }
 
 /* Portfolio Section */
 .portfolio {
     padding: 60px 0;
-    background: var(--bg-secondary);
+    background: transparent;
 }
 
 .portfolio-grid {
@@ -1875,7 +1906,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 2;
 }
@@ -1977,7 +2007,7 @@ body {
 /* FAQ Section */
 .faq {
     padding: 80px 0;
-    background: var(--bg-primary);
+    background: transparent;
 }
 
 .faq-grid {
@@ -2373,7 +2403,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 80px 0;
-    background: var(--bg-tertiary);
+    background: transparent;
 }
 
 .contact-content {
@@ -2589,10 +2619,9 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--bg-secondary);
+    background: transparent;
     color: var(--text-primary);
     padding: 40px 0 20px;
-    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -2658,7 +2687,6 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid var(--border-color);
     padding-top: 1.5rem;
     text-align: center;
     color: var(--text-muted);
@@ -2953,7 +2981,7 @@ body {
         background: rgba(10, 10, 10, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-top: 1px solid var(--border-color);
+        border-top: none;
     }
     
     .nav-menu.active {
@@ -2965,7 +2993,7 @@ body {
         padding: 1rem 0;
         font-size: 1.2rem;
         font-weight: 600;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: none;
         width: 100%;
         display: block;
     }
