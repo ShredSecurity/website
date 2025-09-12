@@ -16,29 +16,6 @@
     --glow-secondary: rgba(29, 78, 216, 0.6);
 }
 
-/* Particles Background */
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: transparent;
-    pointer-events: none;
-}
-
-/* Mouse Trail Effect */
-.trail-dot {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    background: #3b82f6;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fadeOut 1s ease-out forwards;
-}
 
 /* Floating Elements */
 .floating-element {
@@ -735,11 +712,11 @@ body {
 
 .logo-text {
     color: var(--accent-primary);
-    font-weight: 700;
-    font-size: 1.8rem;
+    font-weight: 400;
+    font-size: 1.6rem;
     font-family: 'Inter', sans-serif;
     margin: 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 0px;
 }
 
 
@@ -753,8 +730,8 @@ body {
 .nav-link {
     text-decoration: none;
     color: var(--text-primary);
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
@@ -898,23 +875,6 @@ body {
     z-index: 1;
 }
 
-.ethereum-logo {
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 200px;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.15;
-}
-
-.ethereum-logo svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.3));
-}
 
 @keyframes ethereumGlow {
     0%, 100% {
@@ -1025,7 +985,7 @@ body {
 
 
 .hero-title {
-    font-size: 3.8rem;
+    font-size: 4.0rem;
     font-weight: 700;
     margin-bottom: 2rem;
     line-height: 1.1;
