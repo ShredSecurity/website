@@ -43,28 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function createParticle(container) {
-        const particle = document.createElement('div');
-        particle.className = 'floating-particle';
-        
-        // Random position and animation delay
-        const x = Math.random() * window.innerWidth;
-        const delay = Math.random() * 8;
-        
-        particle.style.left = x + 'px';
-        particle.style.animationDelay = delay + 's';
-        
-        container.appendChild(particle);
-        
-        // Remove and recreate particle after animation
-        setTimeout(() => {
-            if (particle.parentNode) {
-                particle.parentNode.removeChild(particle);
-                createParticle(container);
-            }
-        }, 12000 + delay * 1000);
-    }
-    
 
     
     // Navbar scroll effect
