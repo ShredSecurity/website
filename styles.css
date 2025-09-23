@@ -781,6 +781,21 @@ body {
     height: 40px;
     object-fit: contain;
     border-radius: 8px;
+    display: block !important;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: transparent;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1000;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Fallback for when image doesn't load */
+.logo-image:not([src]),
+.logo-image[src=""] {
+    display: none;
 }
 
 .logo-text {
@@ -885,6 +900,21 @@ body {
 
 .hamburger.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Inline Links for SEO */
+.inline-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.inline-link:hover {
+    color: var(--accent-secondary);
+    border-bottom-color: var(--accent-secondary);
+    text-shadow: 0 0 8px var(--glow-primary);
 }
 
 /* Hero Section */

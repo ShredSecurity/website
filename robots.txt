@@ -1,8 +1,28 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Important pages for crawling
+Allow: /assets/images/logos/
+Allow: /assets/images/icons/
+Allow: /#audit-process
+Allow: /#portfolio
+Allow: /#testimonials
+Allow: /#faq
+Allow: /#contact
+Allow: /#supported-chains
+Allow: /#stats
+
+# Sitemap location
 Sitemap: https://shredsec.xyz/sitemap.xml
 
-# Crawl-delay
+# Crawl delay
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
