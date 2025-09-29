@@ -545,7 +545,7 @@
 }
 
 .vuln-category:hover .vuln-number {
-    animation: textShine 2s linear infinite;
+    animation: textShine 2s linear infinClients Trust, We deliverite;
 }
 
 /* Magnetic Hover Effect for Cards */
@@ -670,7 +670,7 @@ body {
         linear-gradient(135deg, #000000 0%, #050505 25%, #0a0a0a 50%, #050505 75%, #000000 100%);
     background-image:
         radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 40% 60%, rgba(67, 233, 123, 0.06) 0%, transparent 35%),
         radial-gradient(circle at 60% 40%, rgba(255, 107, 107, 0.06) 0%, transparent 35%),
         radial-gradient(circle at 10% 90%, rgba(79, 172, 254, 0.05) 0%, transparent 30%),
@@ -746,6 +746,8 @@ body {
     top: 0;
     width: 100%;
     background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -819,7 +821,7 @@ body {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
@@ -1343,8 +1345,12 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    min-width: 140px;
+    min-width: 160px;
+    max-width: 160px;
+    width: 160px;
+    height: 60px;
     white-space: nowrap;
+    justify-content: flex-start;
 }
 
 .trusted-logo:hover {
@@ -1358,6 +1364,27 @@ body {
     font-size: 1.5rem;
     color: var(--accent-primary);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trusted-logo i img {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block !important;
+}
+
+.trusted-logo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block !important;
 }
 
 .trusted-logo span {
@@ -2044,8 +2071,8 @@ body {
 }
 
 .project-name {
-    font-size: 1.6rem;
-    font-weight: 800;
+    font-size: 1.3rem;
+    font-weight: 400;
     color: var(--text-primary);
     margin: 0 0 0.4rem 0;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
@@ -2062,8 +2089,8 @@ body {
 }
 
 .project-logo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 12px;
     display: flex;
@@ -2074,6 +2101,13 @@ body {
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
     transition: all 0.3s ease;
     flex-shrink: 0;
+}
+
+.project-logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .portfolio-card:hover .project-logo {
@@ -3908,3 +3942,4 @@ body {
         display: none;
     }
 }
+
