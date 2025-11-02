@@ -1,0 +1,24 @@
+<h2>Introduction</h2>
+<p>Smart contract vulnerabilities represent one of the most critical risks in the blockchain ecosystem. As DeFi protocols handle billions of dollars in assets, understanding these vulnerabilities is essential for developers and auditors alike.</p>
+
+<h2>Common Vulnerability Types</h2>
+<h3>1. Reentrancy Attacks</h3>
+<p>Reentrancy occurs when an external contract calls back into the calling contract before the initial execution completes. This can lead to unauthorized withdrawals and fund drainage.</p>
+
+<h3>2. Integer Overflow/Underflow</h3>
+<p>While Solidity 0.8.0+ includes built-in overflow protection, older contracts remain vulnerable to integer manipulation attacks that can cause unexpected behavior.</p>
+
+<h3>3. Access Control Issues</h3>
+<p>Improper access control mechanisms can allow unauthorized users to execute privileged functions, leading to fund theft or protocol manipulation.</p>
+
+<h2>Prevention Strategies</h2>
+<ul>
+    <li>Implement the Checks-Effects-Interactions pattern</li>
+    <li>Use OpenZeppelin's secure libraries</li>
+    <li>Conduct thorough security audits</li>
+    <li>Implement comprehensive test coverage</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>Understanding smart contract vulnerabilities is the first step toward building secure DeFi protocols. Regular audits and following security best practices are essential for protecting user funds.</p>
+

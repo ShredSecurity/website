@@ -1,0 +1,33 @@
+[
+  {
+    "slug": "cosmos-blockchain-security",
+    "title": "Cosmos Blockchain Security: A Comprehensive Technical Deep Dive",
+    "date": "November 2, 2025",
+    "category": "Security Research",
+    "author": "Shred Security Team",
+    "excerpt": "Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies. Comprehensive guide covering SDK, CometBFT, and IBC security challenges.",
+    "imageUrl": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80&auto=format&fit=crop",
+    "contentFile": "cosmos-blockchain-security.html"
+  },
+  {
+    "slug": "understanding-smart-contract-vulnerabilities",
+    "title": "Understanding Smart Contract Vulnerabilities",
+    "date": "January 15, 2025",
+    "category": "Security Research",
+    "author": "Shred Security Team",
+    "excerpt": "A comprehensive guide to common smart contract vulnerabilities and how to prevent them in your DeFi projects.",
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop",
+    "contentFile": "understanding-smart-contract-vulnerabilities.html"
+  },
+  {
+    "slug": "layer-2-security-considerations",
+    "title": "Layer 2 Security Considerations",
+    "date": "January 5, 2025",
+    "category": "Technical",
+    "author": "Shred Security Team",
+    "excerpt": "Exploring security challenges and solutions for Layer 2 scaling solutions in blockchain networks.",
+    "imageUrl": "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=800&q=80&auto=format&fit=crop",
+    "contentFile": "layer-2-security-considerations.html"
+  }
+]
+

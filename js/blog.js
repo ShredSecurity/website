@@ -54,133 +54,196 @@ function addStructuredData(post) {
     document.head.appendChild(script);
 }
 
-// Blog Posts Data
-const blogPosts = {
-    1: {
-        title: "Understanding Smart Contract Vulnerabilities",
-        date: "January 15, 2025",
-        category: "Security Research",
-        author: "Shred Security Team",
-        content: `
-            <h2>Introduction</h2>
-            <p>Smart contract vulnerabilities represent one of the most critical risks in the blockchain ecosystem. As DeFi protocols handle billions of dollars in assets, understanding these vulnerabilities is essential for developers and auditors alike.</p>
-            
-            <h2>Common Vulnerability Types</h2>
-            <h3>1. Reentrancy Attacks</h3>
-            <p>Reentrancy occurs when an external contract calls back into the calling contract before the initial execution completes. This can lead to unauthorized withdrawals and fund drainage.</p>
-            
-            <h3>2. Integer Overflow/Underflow</h3>
-            <p>While Solidity 0.8.0+ includes built-in overflow protection, older contracts remain vulnerable to integer manipulation attacks that can cause unexpected behavior.</p>
-            
-            <h3>3. Access Control Issues</h3>
-            <p>Improper access control mechanisms can allow unauthorized users to execute privileged functions, leading to fund theft or protocol manipulation.</p>
-            
-            <h2>Prevention Strategies</h2>
-            <ul>
-                <li>Implement the Checks-Effects-Interactions pattern</li>
-                <li>Use OpenZeppelin's secure libraries</li>
-                <li>Conduct thorough security audits</li>
-                <li>Implement comprehensive test coverage</li>
-            </ul>
-            
-            <h2>Conclusion</h2>
-            <p>Understanding smart contract vulnerabilities is the first step toward building secure DeFi protocols. Regular audits and following security best practices are essential for protecting user funds.</p>
-        `
-    },
-    2: {
-        title: "Best Practices for DeFi Security Audits",
-        date: "January 10, 2025",
-        category: "Best Practices",
-        author: "Shred Security Team",
-        content: `
-            <h2>Introduction</h2>
-            <p>Security audits are a critical component of the DeFi development lifecycle. This guide outlines best practices for conducting and preparing for security audits.</p>
-            
-            <h2>Preparation Phase</h2>
-            <p>Before engaging an audit firm, ensure your codebase is well-documented, tested, and follows industry standards. This significantly reduces audit time and costs.</p>
-            
-            <h2>During the Audit</h2>
-            <p>Maintain open communication with auditors, provide comprehensive documentation, and be prepared to address findings promptly.</p>
-            
-            <h2>Post-Audit Actions</h2>
-            <p>After receiving audit findings, prioritize critical and high-severity issues, implement fixes, and consider a re-audit for critical changes.</p>
-            
-            <h2>Conclusion</h2>
-            <p>Following these best practices ensures a smooth audit process and maximizes the security benefits of professional code review.</p>
-        `
-    },
-    3: {
-        title: "Layer 2 Security Considerations",
-        date: "January 5, 2025",
-        category: "Technical",
-        author: "Shred Security Team",
-        content: `
-            <h2>Introduction</h2>
-            <p>Layer 2 solutions offer scalability improvements but introduce unique security considerations that developers must address.</p>
-            
-            <h2>Security Challenges</h2>
-            <p>L2 solutions introduce new attack vectors including bridge vulnerabilities, sequencer risks, and data availability concerns.</p>
-            
-            <h2>Best Practices</h2>
-            <p>Implement proper validation mechanisms, design secure bridge contracts, and consider data availability guarantees when building on L2.</p>
-            
-            <h2>Conclusion</h2>
-            <p>While L2 solutions provide scalability, security must remain a top priority throughout the development process.</p>
-        `
+// Load all blog posts from JSON file
+async function loadBlogPosts() {
+    try {
+        const response = await fetch('blog-posts/posts.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load blog posts: ${response.status} ${response.statusText}`);
+        }
+        const posts = await response.json();
+        console.log('Loaded blog posts:', posts.length);
+        return posts;
+    } catch (error) {
+        console.error('Error loading blog posts:', error);
+        return [];
     }
-};
+}
 
-// Load blog post content based on URL parameter
-document.addEventListener('DOMContentLoaded', function() {
+// Load blog post content from HTML file
+async function loadBlogContent(contentFile) {
+    try {
+        const response = await fetch(`blog-posts/${contentFile}`);
+        if (!response.ok) {
+            throw new Error('Failed to load blog content');
+        }
+        return await response.text();
+    } catch (error) {
+        console.error('Error loading blog content:', error);
+        return '<p>Error loading content. Please try again later.</p>';
+    }
+}
+
+// Get slug from URL
+function getSlugFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+    const slug = urlParams.get('slug');
+    return slug;
+}
+
+// Load and display blog post content
+async function loadBlogPost() {
+    const slug = getSlugFromURL();
+    if (!slug) {
+        // If no slug, try to load the first post or redirect to blog listing
+        const posts = await loadBlogPosts();
+        if (posts.length > 0) {
+            // Redirect to the first post (most recent)
+            const firstPost = posts[0];
+            window.location.href = `blog-post.html?slug=${firstPost.slug}`;
+            return;
+        } else {
+            // No posts found, redirect to blog listing
+            window.location.href = 'blog.html';
+            return;
+        }
+    }
+
+    const posts = await loadBlogPosts();
+    const post = posts.find(p => p.slug === slug);
     
-    if (postId && blogPosts[postId]) {
-        const post = blogPosts[postId];
-        
-        document.getElementById('post-title').textContent = post.title;
-        document.getElementById('post-date').textContent = post.date;
-        document.getElementById('post-category').textContent = post.category;
-        document.getElementById('post-author').textContent = post.author;
-        document.getElementById('post-content').innerHTML = post.content;
-        
-        // Update page title
-        document.title = `${post.title} - Shred Security Blog`;
-        
-        // Update SEO meta tags
-        updateMetaTag('name', 'description', post.excerpt || `${post.title} - Expert insights on ${post.category} from Shred Security's audit team.`);
-        updateMetaTag('property', 'og:title', post.title);
-        updateMetaTag('property', 'og:description', post.excerpt || `${post.title} - Expert insights from Shred Security.`);
-        updateMetaTag('property', 'og:type', 'article');
-        updateMetaTag('property', 'og:url', window.location.href);
-        if (post.imageUrl) {
-            updateMetaTag('property', 'og:image', post.imageUrl);
+    if (!post) {
+        console.error('Blog post not found:', slug);
+        // Redirect to blog list or show error
+        const postContent = document.getElementById('post-content');
+        if (postContent) {
+            postContent.innerHTML = '<p>Blog post not found. <a href="blog.html">Return to blog</a></p>';
         }
-        updateMetaTag('name', 'twitter:title', post.title);
-        updateMetaTag('name', 'twitter:description', post.excerpt || `${post.title} - Expert insights from Shred Security.`);
-        
-        // Update canonical link
-        let canonicalLink = document.querySelector('link[rel="canonical"]');
-        if (!canonicalLink) {
-            canonicalLink = document.createElement('link');
-            canonicalLink.setAttribute('rel', 'canonical');
-            document.head.appendChild(canonicalLink);
+        return;
+    }
+
+    // Load the HTML content
+    const content = await loadBlogContent(post.contentFile);
+    
+    // Update DOM elements
+    const titleEl = document.getElementById('post-title');
+    const dateEl = document.getElementById('post-date');
+    const categoryEl = document.getElementById('post-category');
+    const authorEl = document.getElementById('post-author');
+    const contentEl = document.getElementById('post-content');
+    const imageEl = document.querySelector('.blog-post-header-image');
+
+    if (titleEl) titleEl.textContent = post.title;
+    if (dateEl) dateEl.textContent = post.date;
+    if (categoryEl) categoryEl.textContent = post.category;
+    if (authorEl) authorEl.textContent = post.author;
+    if (contentEl) contentEl.innerHTML = content;
+    if (imageEl && post.imageUrl) {
+        imageEl.src = post.imageUrl;
+        imageEl.alt = post.title;
+    }
+
+    // Update page title
+    document.title = `${post.title} - Shred Security Blog`;
+
+    // Update SEO meta tags
+    updateMetaTag('name', 'description', post.excerpt || `${post.title} - Expert insights on ${post.category} from Shred Security's audit team.`);
+    updateMetaTag('property', 'og:title', post.title);
+    updateMetaTag('property', 'og:description', post.excerpt || `${post.title} - Expert insights from Shred Security.`);
+    updateMetaTag('property', 'og:type', 'article');
+    updateMetaTag('property', 'og:url', window.location.href);
+    if (post.imageUrl) {
+        updateMetaTag('property', 'og:image', post.imageUrl);
+    }
+    updateMetaTag('name', 'twitter:title', post.title);
+    updateMetaTag('name', 'twitter:description', post.excerpt || `${post.title} - Expert insights from Shred Security.`);
+
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', window.location.href);
+
+    // Add structured data (JSON-LD)
+    addStructuredData(post);
+
+    // Update share links
+    const currentUrl = encodeURIComponent(window.location.href);
+    document.querySelectorAll('.share-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes('twitter.com')) {
+            link.setAttribute('href', `https://twitter.com/intent/tweet?url=${currentUrl}&text=${encodeURIComponent(post.title)}`);
+        } else if (href && href.includes('linkedin.com')) {
+            link.setAttribute('href', `https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${encodeURIComponent(post.title)}`);
         }
-        canonicalLink.setAttribute('href', window.location.href);
+    });
+}
+
+// Generate blog cards dynamically for blog listing page
+async function generateBlogCards() {
+    const blogGrid = document.querySelector('.blog-grid');
+    if (!blogGrid) {
+        console.error('Blog grid not found');
+        return;
+    }
+
+    const posts = await loadBlogPosts();
+    
+    if (!posts || posts.length === 0) {
+        blogGrid.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 2rem;">No blog posts found.</p>';
+        console.error('No blog posts loaded');
+        return;
+    }
+    
+    // Sort by date (newest first)
+    // Parse dates in "Month Day, Year" format (e.g., "November 2, 2025")
+    posts.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        // If parsing fails, keep original order
+        if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+            return 0;
+        }
+        return dateB - dateA;
+    });
+
+    blogGrid.innerHTML = posts.map(post => {
+        const imageHtml = post.imageUrl 
+            ? `<img src="${post.imageUrl}" alt="${post.title}" class="blog-card-thumbnail">`
+            : `<div class="blog-placeholder-img"><i class="fas fa-lock"></i></div>`;
         
-        // Add structured data (JSON-LD)
-        addStructuredData(post);
-        
-        // Update share links
-        const currentUrl = encodeURIComponent(window.location.href);
-        document.querySelectorAll('.share-link').forEach(link => {
-            const href = link.getAttribute('href');
-            if (href.includes('twitter.com')) {
-                link.setAttribute('href', `https://twitter.com/intent/tweet?url=${currentUrl}&text=${encodeURIComponent(post.title)}`);
-            } else if (href.includes('linkedin.com')) {
-                link.setAttribute('href', `https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${encodeURIComponent(post.title)}`);
-            }
-        });
+        return `
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    ${imageHtml}
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> ${post.date}</span>
+                        <span class="blog-category">${post.category}</span>
+                    </div>
+                    <h2 class="blog-title">${post.title}</h2>
+                    <p class="blog-excerpt">${post.excerpt}</p>
+                    <a href="blog-post.html?slug=${post.slug}" class="blog-read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+// Initialize based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the blog post page
+    if (document.getElementById('post-content')) {
+        loadBlogPost();
+    }
+    // Check if we're on the blog listing page
+    if (document.querySelector('.blog-grid')) {
+        generateBlogCards();
     }
 });
-

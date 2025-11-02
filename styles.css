@@ -2138,6 +2138,18 @@ img, svg {
     background: rgba(255, 255, 255, 0.05);
 }
 
+.blog-card-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-card-thumbnail {
+    transform: scale(1.05);
+}
+
 .blog-placeholder-img {
     width: 100%;
     height: 100%;
@@ -2294,9 +2306,17 @@ img, svg {
 
 .blog-post-image {
     width: 100%;
-    height: 400px;
+    height: 450px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.blog-post-header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .blog-post-content {
@@ -2340,6 +2360,119 @@ img, svg {
 
 .blog-post-content li {
     margin-bottom: 0.8rem;
+}
+
+/* Vulnerability Table Styling */
+.vulnerability-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.vulnerability-table thead {
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.vulnerability-table th {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vulnerability-table td {
+    padding: 1.2rem 1.5rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.95rem;
+}
+
+.vulnerability-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.vulnerability-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.vulnerability-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.vulnerability-table td:nth-child(3) {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Severity color coding - will be handled via JS if needed */
+.vulnerability-table td.severity-critical {
+    color: #ff6b6b;
+}
+
+.vulnerability-table td.severity-high {
+    color: #ff8c69;
+}
+
+.vulnerability-table td.severity-medium {
+    color: #ffa366;
+}
+
+.vulnerability-table td.severity-low {
+    color: #b8b8b8;
+}
+
+/* Code Block Styling */
+.blog-post-content pre {
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.blog-post-content pre code {
+    font-family: 'Courier New', 'Fira Code', 'Consolas', monospace;
+    color: #e0e0e0;
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.blog-post-content code:not(pre code) {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: #ffd700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Prism.js Theme Override */
+.blog-post-content pre[class*="language-"] {
+    background: #1a1a2e;
+}
+
+.blog-post-content code[class*="language-"] {
+    background: transparent;
+    padding: 0;
+    border: none;
+    color: inherit;
 }
 
 .blog-post-footer {
@@ -3859,6 +3992,543 @@ html {
     .clients-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+    }
+}
+
+/* Portfolio Page Styles */
+.portfolio-hero {
+    padding: 150px 0 80px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.portfolio-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.portfolio-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -2px;
+}
+
+.portfolio-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 100%;
+}
+
+.portfolio-statement {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.portfolio-highlights {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.highlight-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.highlight-icon {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.highlight-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.highlight-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Portfolio Team Section */
+.portfolio-team-section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.portfolio-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-team-category {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.team-category-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.portfolio-team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.portfolio-team-member {
+    display: flex;
+    align-items: center;
+}
+
+.team-member-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.team-member-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.team-member-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.team-member-link i {
+    color: #1DA1F2;
+    font-size: 1.2rem;
+}
+
+/* Portfolio Tables */
+.portfolio-audits-section,
+.portfolio-competitions-section,
+.portfolio-bugbounties-section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-table-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+}
+
+.portfolio-table-scrollable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.portfolio-table-wide {
+    min-width: 1200px;
+}
+
+.portfolio-table thead {
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.portfolio-table th {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.portfolio-table td {
+    padding: 1.2rem 1rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.portfolio-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.portfolio-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-total-row {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.table-total-row td {
+    font-weight: 700;
+    color: var(--text-primary);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.finding-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 0.4rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+}
+
+.finding-badge.solo {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.4);
+    color: #a78bfa;
+}
+
+.private-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.report-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.report-link:hover {
+    color: #1DA1F2;
+    gap: 0.8rem;
+}
+
+.report-link::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.report-link:hover::after {
+    transform: translateX(3px);
+}
+
+.contest-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contest-link:hover {
+    color: #1DA1F2;
+    text-decoration: underline;
+}
+
+.coming-soon {
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Portfolio Contact Section */
+.portfolio-contact-section {
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.portfolio-contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 4rem 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.contact-icon {
+    font-size: 3.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.contact-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.contact-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    justify-content: center;
+}
+
+.contact-link.primary {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.1rem;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.contact-link i {
+    font-size: 1.3rem;
+}
+
+.contact-alt-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-alt-links .contact-link {
+    min-width: auto;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Responsive Portfolio Styles */
+@media (max-width: 1024px) {
+    .portfolio-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-hero {
+        padding: 120px 0 60px;
+    }
+
+    .portfolio-highlights,
+    .portfolio-team-section,
+    .portfolio-audits-section,
+    .portfolio-competitions-section,
+    .portfolio-bugbounties-section,
+    .portfolio-contact-section {
+        padding: 60px 0;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .highlight-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .portfolio-contact-content {
+        padding: 3rem 2rem;
+    }
+
+    .contact-alt-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-alt-links .contact-link {
+        width: 100%;
+    }
+
+    .portfolio-table-container {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .portfolio-table th,
+    .portfolio-table td {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+
+    .portfolio-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .portfolio-contact-content {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .contact-link {
+        min-width: 100%;
+        padding: 0.9rem 1.5rem;
     }
 }
 
