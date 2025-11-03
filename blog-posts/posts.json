@@ -4,7 +4,7 @@
     "title": "Cosmos Blockchain Security: A Comprehensive Technical Deep Dive",
     "date": "November 2, 2025",
     "category": "Security Research",
-    "author": "Shred Security Team",
+    "author": "kenzowhitehat, Shred Security",
     "excerpt": "Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies. Comprehensive guide covering SDK, CometBFT, and IBC security challenges.",
     "imageUrl": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80&auto=format&fit=crop",
     "contentFile": "cosmos-blockchain-security.html"
