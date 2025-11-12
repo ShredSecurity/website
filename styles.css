@@ -185,7 +185,7 @@ img, svg {
 }
 
 .logo {
-    height: 35px;
+    height: 55px;
     width: auto;
     object-fit: contain;
     transition: all 0.3s ease;
@@ -201,6 +201,7 @@ img, svg {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
+    margin-left: -15px;
     color: var(--text-primary);
     letter-spacing: 2px;
     text-transform: uppercase;
