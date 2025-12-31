@@ -1,27 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Cosmos Blockchain Security: A Comprehensive Technical Deep Dive - Shred Security</title>
     <meta name="description" content="Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies. Comprehensive guide covering SDK, CometBFT, and IBC security challenges.">
     <meta name="keywords" content="web3 security, blockchain audit, smart contract security, defi security, crypto security, blockchain vulnerabilities, security best practices">
     <meta name="author" content="Shred Security">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://shredsecurity.com/blog-post.html">
+    <meta property="og:url" content="https://shredsec.xyz/blog-post.html">
+    <meta property="og:title" content="Cosmos Blockchain Security: A Comprehensive Technical Deep Dive - Shred Security">
+    <meta property="og:description" content="Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies. Comprehensive guide covering SDK, CometBFT, and IBC security challenges.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Shred Security">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Shred Security">
+    <meta property="article:published_time" content="2025-11-02T00:00:00+00:00">
+    <meta property="article:section" content="Security Research">
+    <meta property="article:tag" content="Cosmos">
+    <meta property="article:tag" content="Blockchain Security">
+    <meta property="article:tag" content="Web3 Security">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://shredsecurity.com/blog-post.html">
+    <meta name="twitter:url" content="https://shredsec.xyz/blog-post.html">
+    <meta name="twitter:title" content="Cosmos Blockchain Security: A Comprehensive Technical Deep Dive">
+    <meta name="twitter:description" content="Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80&auto=format&fit=crop">
+    <meta name="twitter:creator" content="@shredscrt">
+    <meta name="twitter:site" content="@shredscrt">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://shredsec.xyz/blog-post.html">
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- DNS Prefetch and Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data - Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cosmos Blockchain Security: A Comprehensive Technical Deep Dive",
+        "description": "Explore Cosmos blockchain security architecture, common vulnerabilities, real-world exploits, and mitigation strategies. Comprehensive guide covering SDK, CometBFT, and IBC security challenges.",
+        "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80&auto=format&fit=crop",
+        "datePublished": "2025-11-02T00:00:00+00:00",
+        "dateModified": "2025-11-02T00:00:00+00:00",
+        "author": {
+            "@type": "Organization",
+            "name": "Shred Security",
+            "url": "https://shredsec.xyz"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Shred Security",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://shredsec.xyz/assets/Logo-Without-Background.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://shredsec.xyz/blog-post.html"
+        },
+        "articleSection": "Security Research",
+        "keywords": "Cosmos, Blockchain Security, Web3 Security, IBC, CometBFT, Cosmos SDK, Security Vulnerabilities",
+        "inLanguage": "en-US"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://shredsec.xyz/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://shredsec.xyz/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Cosmos Blockchain Security",
+                "item": "https://shredsec.xyz/blog-post.html"
+            }
+        ]
+    }
+    </script>
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
@@ -106,7 +205,7 @@
                     <a href="https://twitter.com/shredscrt" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://linkedin.com/company/shred-security/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/shred-security/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://github.com/ShredSecurity" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
@@ -118,7 +217,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Shred Security. Safeguarding blockchain's limitless potential.</p>
+                <p>&copy; 2026 Shred Security. Safeguarding blockchain's limitless potential.</p>
             </div>
         </div>
     </footer>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     
     <!-- Homepage -->
     <url>
@@ -9,66 +10,59 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://shredsec.xyz/assets/images/logos/shred_sec_logo_2.png</image:loc>
+            <image:loc>https://shredsec.xyz/assets/Logo-Without-Background.png</image:loc>
             <image:title>Shred Security Logo</image:title>
-            <image:caption>Shred Security - Web3 Smart Contract Security Audits</image:caption>
+            <image:caption>Shred Security - Leading Web3 Smart Contract Security Audits</image:caption>
         </image:image>
-    </url>
-    
-    <!-- Audit Process Page -->
-    <url>
-        <loc>https://shredsec.xyz/#audit-process</loc>
-        <lastmod>2025-01-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
     </url>
     
     <!-- Portfolio Page -->
     <url>
-        <loc>https://shredsec.xyz/#portfolio</loc>
+        <loc>https://shredsec.xyz/portfolio.html</loc>
         <lastmod>2025-01-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- Testimonials Page -->
+    <!-- Blog Page -->
     <url>
-        <loc>https://shredsec.xyz/#testimonials</loc>
+        <loc>https://shredsec.xyz/blog.html</loc>
         <lastmod>2025-01-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- FAQ Page -->
-    <url>
-        <loc>https://shredsec.xyz/#faq</loc>
-        <lastmod>2025-01-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Contact Page -->
-    <url>
-        <loc>https://shredsec.xyz/#contact</loc>
-        <lastmod>2025-01-23</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- Supported Chains -->
+    <!-- Blog Posts -->
     <url>
-        <loc>https://shredsec.xyz/#supported-chains</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://shredsec.xyz/blog-posts/cosmos-blockchain-security.html</loc>
+        <lastmod>2025-11-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&amp;q=80&amp;auto=format&amp;fit=crop</image:loc>
+            <image:title>Cosmos Blockchain Security</image:title>
+        </image:image>
     </url>
     
-    <!-- Stats Section -->
     <url>
-        <loc>https://shredsec.xyz/#stats</loc>
+        <loc>https://shredsec.xyz/blog-posts/best-practices-defi-security-audits.html</loc>
         <lastmod>2025-01-23</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://shredsec.xyz/blog-posts/layer-2-security-considerations.html</loc>
+        <lastmod>2025-01-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://shredsec.xyz/blog-posts/understanding-smart-contract-vulnerabilities.html</loc>
+        <lastmod>2025-01-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
 </urlset>
